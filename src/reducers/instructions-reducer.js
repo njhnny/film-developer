@@ -12,7 +12,12 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         isLoading: true
       });
-    default:
-      return state;
-    }
-};
+      case c.GET_INSTRUCTIONS_SUCCESS:
+        return Object.assign({}, state, {
+          isLoading: false,
+          instructions: action.instructions
+        });
+      default:
+        return state;
+      }
+  };
